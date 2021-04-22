@@ -1,6 +1,8 @@
 # microdot-phat-youtube-subscribers
 
-Python script to display your YouTube subscriber count on the Pimoroni Micro Dot pHAT.
+Python script to display your YouTube Subscriber count on the Pimoroni Micro Dot pHAT.
+
+<img src="images/phat.jpg" alt="Microdot pHAT YouTube Subscribers" title="Microdot pHAT YouTube Subscribers" />
 
 ## Dependencies
 
