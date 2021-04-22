@@ -43,7 +43,7 @@ def format_number(num):
 while True:
     clear()
     sub_count = get_subscribers()
-    print(datetime.datetime.now() + " Sub count: " + sub_count)
+    print(datetime.datetime.now().strftime("%H:%M:%S") + " Sub count: " + sub_count)
     write_string(format_number(sub_count), kerning=False)
     show()
     time.sleep(30)
