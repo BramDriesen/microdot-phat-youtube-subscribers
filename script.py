@@ -11,17 +11,29 @@ def get_subscribers():
     subcount = channel_info.statistics.subscriberCount
     return subcount
 
-def human_format(num, precision=2, suffixes=['', 'K', 'M', 'G', 'T', 'P']):
-    num = int(num)
-    m = sum([abs(num/10000.0**x) >= 1 for x in range(1, len(suffixes))])
+def safe_num(num):
+    if isinstance(num, str):
+        num = float(num)
+    return float('{:.3g}'.format(abs(num)))
 
-    if num <= 9999:
-        return f'{num}'
-    else:
-        return f'{num/1000.0**m:.{precision}f}{suffixes[m]}'
+def format_number(num):
+    num = safe_num(num)
+    sign = ''
+
+    metric = {'T': 1000000000000, 'B': 1000000000, 'M': 1000000, 'K': 1000, '': 1}
+
+    for index in metric:
+        num_check = num / metric[index]
+
+        if(num_check >= 1):
+            num = num_check
+            sign = index
+            break
+
+    return f"{str(num).rstrip('0').rstrip('.')}{sign}"
 
 while True:
     clear()
-    write_string(human_format(get_subscribers()))
+    write_string(format_number(get_subscribers()), kerning=False)
     show()
     time.sleep(30)
