@@ -14,7 +14,7 @@ or
 
 **[Python YouTube][2]:**
 
-    pip install --upgrade python-youtube
+    sudo pip3 install --upgrade python-youtube
 
 ## Installing
 
@@ -48,7 +48,7 @@ Edit your `rc.local` (or use any other method as [described here][3]) file to ma
 
 Using your cursor keys scroll to the bottom and add the following line :
 
-    python3 home/pi/microdot-phat-youtube-subscribers/script.py &
+    sudo python3 /home/pi/microdot-phat-youtube-subscribers/script.py & > /home/pi/youtube-subscribers.log
 
 Now reboot your Pi and the script should automatically start.
 
