@@ -18,12 +18,42 @@ or
 
 ## Installing
 
-@todo: Provide install package.
+Clone the project:
 
-## Using
+    git clone https://github.com/BramDriesen/microdot-phat-youtube-subscribers.git
 
-@todo: Provide config guide.
+Copy the default-config file to config.py
 
+    cp default-config.py config.py
+
+Edit the configuration file and add the YouTube channel you want to monitor, and the YouTube Statistics V3 API key.
+
+    API_KEY = "YOUR API KEY"
+    CHANNEL_ID = "YOUR CHANNEL ID"
+
+NOTE: Make sure to enable the setting "Wait for network on boot" in the Raspberry Pi config screen. Use `sudo raspi-config` to go to the settings.
+
+
+## Usage
+
+To simply run the script execute the script file.
+
+    python3 script.py
+
+## Autostart
+
+Edit your `rc.local` (or use any other method as [described here][3]) file to make the script run at boot. Edit it using the command:
+
+    sudo nano /etc/rc.local
+
+Using your cursor keys scroll to the bottom and add the following line :
+
+    python3 home/pi/microdot-phat-youtube-subscribers/script.py &
+
+Now reboot your Pi and the script should automatically start.
+
+    sudo reboot
 
 [1]: https://github.com/pimoroni/microdot-phat
 [2]: https://github.com/sns-sdks/python-youtube
+[3]: https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/
